@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,39 +9,115 @@
     body {
       margin: 0;
       font-family: Proxima Nova;
-      background-color: #ffffff;
-    }
- /* Header */
-    header {
-      padding: 10px 20px;
       background-color: #77A8BB;
-      border-bottom: 1px solid #ddd;
     }
+
+    /* Header */
+    header {
+      background-color: #77A8BB;
+      border: none;
+    }
+
+    .hero .content h1 {
+      margin: 0 0 1rem 0;
+      /* remove top margin, keep small bottom spacing */
+      font-size: 2.5rem;
+      /* adjust size if needed */
+      line-height: 1.2;
+      /* tighten spacing between lines */
+    }
+
     header img {
-      height: 40px;
+      max-height: 160px;
+      /* adjust to taste */
+      width: auto;
+      display: block;
+      margin: 0 auto;
+      /* optional spacing */
     }
 
     /* Hero section */
     .hero {
-      position: relative;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
+      /* move content toward the top */
       justify-content: space-between;
-      background-color: #FFC907; /* yellow */
-      padding: 60px 10%;
-      flex-wrap: wrap;
-      overflow: hidden;
+      padding: 5rem 3rem;
+      /* add more top padding to "push down" a bit */
+      background-color: #FFC907;
+      clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+      color: white;
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
     }
 
-   /* Bigger diagonal blue shape */
+    /* Left text column */
+    .hero-text-column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 2.5rem;
+      /* more space between text blocks */
+      max-width: 600px;
+      /* allow bigger text */
+    }
+
+    .hero-text-column h2 {
+      font-size: 2rem;
+      /* bigger subheadline */
+    }
+
+    .hero-text-column p {
+      font-size: 1.25rem;
+      /* larger body text */
+      line-height: 1.6;
+    }
+
+    /* Button */
+    .cta-button {
+      padding: 14px 28px;
+      font-size: 1.1rem;
+    }
+
+    /* Left text section */
+    .hero .content {
+      flex: 1;
+      /* take up half the space */
+      padding-right: 2rem;
+    }
+
+    /* Right image section */
+    .hero .hero-image {
+      flex: 1;
+      width: 40%;
+      height: 40%;
+      /* take up the other half */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero .hero-image img {
+      width: 100%;
+      /* scale image to fit container */
+      max-width: 500px;
+      /* keep it from being too huge */
+      border-radius: 10px;
+    }
+
+    /* Bigger diagonal blue shape */
     .hero::after {
       content: "";
       position: absolute;
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 30vh; /* 30% of screen height */
-      background-color: #77A8BB; /* light blue */
+      height: 100vh;
+      /* extend full screen height */
+      background-color: #77A8BB;
+      /* light blue */
       clip-path: polygon(0 100%, 100% 40%, 100% 100%, 0 100%);
       z-index: 0;
     }
@@ -49,11 +126,11 @@
       flex: 1 1 50%;
       max-width: 500px;
       color: #333;
-      position: relative; 
+      position: relative;
       z-index: 1;
-      text-align: left; /* text aligned left */
+      text-align: left;
+      /* text aligned left */
     }
-
 
     .hero-text h1 {
       font-size: 2rem;
@@ -72,13 +149,15 @@
       display: inline-block;
       padding: 12px 24px;
       font-size: 1rem;
-      background-color: #e0e0e0;
-      color: #333;
+      background-color: #FFC907;
+      color: #fff;
       border: none;
       border-radius: 5px;
       text-decoration: none;
       cursor: pointer;
       font-weight: bold;
+      transition: background 0.3s, color 0.3s;
+
     }
 
     .hero-text .cta:hover {
@@ -87,51 +166,97 @@
 
     .hero-image {
       flex: 1 1 40%;
-      text-align: right; /* image aligned right */
+      text-align: right;
+      /* image aligned right */
       position: relative;
       z-index: 1;
-    }
-
-    .hero-image img {
       max-width: 100%;
       border-radius: 8px;
+      width: 100%;
+
     }
 
-   /* Responsive adjustments */
+    /* Responsive adjustments */
     @media (max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
+      .hero-text-column h1 {
+        font-size: 2rem;
       }
-      .hero-text {
-        margin-bottom: 20px;
-        text-align: center; /* re-center on mobile */
+
+      .hero-text-column h2 {
+        font-size: 1.5rem;
       }
-      .hero-image {
-        text-align: center;
+
+      .hero-text-column p {
+        font-size: 1rem;
       }
+
+      .hero-image img {
+        max-width: 90%;
+      }
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #CBCCD1;
+      /* new button color */
+      color: #000;
+      /* black text for contrast */
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #b0b2b8;
+      /* slightly darker shade for hover */
+      color: #fff;
+      /* switch text to white */
+      transform: scale(1.05);
+      /* subtle grow effect */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      /* add soft shadow */
     }
   </style>
 </head>
+
 <body>
 
   <!-- Header -->
   <header>
-    <img src="img/cw_logo.png" alt="Charity: Water Logo">
+    <img src="img/charitywater_logo_horizontal_AllBlack.png" alt="Charity: Water Logo">
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-text">
-      <h1>Every Dollar to Water, Every Click to Change</h1>
-      <p>We keep giving simple: one quick donation, full transparency, and a direct impact on communities worldwide.</p>
-      <p>Every donation changes a family’s life forever.</p>
-      <a href="#" class="cta">Donate Here</a>
+    <!-- Left column: all text -->
+    <div class="hero-text-column">
+      <div class="top-text">
+        <h1>Every Dollar to Water, Every Click to Change</h1>
+        <p>
+          We keep giving simple: one quick donation, full transparency, and a direct
+          impact on communities worldwide.
+        </p>
+        <p>Every donation changes a family’s life forever.</p>
+      </div>
+
+      <div class="bottom-text">
+        <h2>Why Your Donation Matters</h2>
+        <p>
+          Every $10 you give brings clean water to someone in need. Together, we can
+          change lives sustainably.
+        </p>
+        <a href="#" class="cta-button">Donate Here</a>
+      </div>
     </div>
+
+    <!-- Right column: image -->
     <div class="hero-image">
       <img src="img/charity_water_Tanzania_TaraShupePhotography_0035.jpg" alt="Children with water">
     </div>
   </section>
 
 </body>
+
 </html>
