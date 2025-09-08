@@ -29,7 +29,6 @@
 
     header img {
       max-height: 160px;
-      /* adjust to taste */
       width: auto;
       display: block;
       margin: 0 auto;
@@ -104,6 +103,7 @@
       /* scale image to fit container */
       max-width: 500px;
       /* keep it from being too huge */
+      height: auto;
       border-radius: 10px;
     }
 
@@ -166,6 +166,9 @@
 
     .hero-image {
       flex: 1 1 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
       text-align: right;
       /* image aligned right */
       position: relative;
@@ -188,6 +191,11 @@
 
       .hero-text-column p {
         font-size: 1rem;
+      }
+
+      .hero-image {
+        flex-direction: column;
+        align-items: center;
       }
 
       .hero-image img {
@@ -253,7 +261,9 @@
 
     <!-- Right column: image -->
     <div class="hero-image">
-      <img src="img/charity_water_Tanzania_TaraShupePhotography_0035.jpg" alt="Children with water">
+      <img src="img/charity_water_Tanzania_TaraShupePhotography_0035.jpg" alt="Children with 
+      water">
+      <img src="img/Zimbabwe_2022_CG-9610.jpg" alt="Building a community well">
     </div>
   </section>
 
