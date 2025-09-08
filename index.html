@@ -49,6 +49,8 @@
       position: relative;
       z-index: 1;
       min-height: 100vh;
+      background: linear-gradient(135deg, #FFC907 0%, #FFB800 100%);
+
     }
 
     /* Left text column */
@@ -160,6 +162,13 @@
 
     }
 
+    .bottom-text {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
     .hero-text .cta:hover {
       background-color: #ccc;
     }
@@ -203,6 +212,11 @@
       }
     }
 
+    .accent {
+      color: #77A8BB;
+      /* complementary blue */
+    }
+
     .cta-button {
       display: inline-block;
       padding: 12px 24px;
@@ -241,7 +255,7 @@
     <!-- Left column: all text -->
     <div class="hero-text-column">
       <div class="top-text">
-        <h1>Every Dollar to Water, Every Click to Change</h1>
+        <h1>Every <span class="accent">Dollar</span> to Water, Every Click to <span class="accent">Change</span></h1>
         <p>
           We keep giving simple: one quick donation, full transparency, and a direct
           impact on communities worldwide.
